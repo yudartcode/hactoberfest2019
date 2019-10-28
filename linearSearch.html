@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Linear Search | Javascript</title>
+</head>
+
+<body>
+    <h1>Algoritma Linear Search dengan Javascript</h1>
+    <h2>Search index</h2>
+    <form action="">
+        <label for="data">Data: </label>
+        <input id="key" type="number">
+    </form>
+    <button onclick="showIndex()">Search Data</button>
+    <h2>Data: <p id="data"></p>
+        <script>
+            const data = [1, 3, 52, 62, 33, 6, 37, 65, 11, 4, 2, 12, 123, 125, 112, 1252, 155, 151, 151, 54];
+            for ( i = 0; i < data.length; i++ ) {
+                document.write( `${ data[i] }, ` )
+            }
+
+        </script>
+    </h2>
+    <h2>Index: <p id="index"></p>
+    </h2>
+    <script>
+
+        let key = document.getElementById( 'key' );
+        let index = document.getElementById( 'index' );
+        let dataShow = document.getElementById( 'data' );
+
+        showIndex = () => {
+            if ( linearSearch( data, parseInt( key.value ) ) < 0 ) {
+                index.innerHTML = "Data Not Found"
+            } else {
+                index.innerHTML = linearSearch( data, parseInt( key.value ) )
+            }
+            key.value = '';
+        }
+
+        linearSearch = ( arr, val ) => {
+            for ( var i = 0; i < arr.length; i++ ) {
+                if ( arr[i] === val ) return i;
+            }
+            return -1;
+        }
+
+    </script>
+</body>
+
+</html>
